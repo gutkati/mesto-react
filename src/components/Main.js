@@ -1,14 +1,14 @@
 import React from 'react';
-import Avatar from '../images/avatar.jpg';
 import Card from './Card.js';
 import { api } from "../utils/Api.js";
 
-function Main(onEditProfile, onAddPlace, onEditAvatar, onCardClick) {
+function Main({onEditProfile, onAddPlace, onEditAvatar, onCardClick}) {
 
     const [userName, setUserName] = React.useState('');
     const [userDescription, setUserDescription] = React.useState('');
     const [userAvatar, setUserAvatar] = React.useState('');
-    const [cards, setCards] = React.useState([])
+    const [cards, setCards] = React.useState([]);
+
 
     React.useEffect(() => {
         api.getProfile()
@@ -28,7 +28,7 @@ function Main(onEditProfile, onAddPlace, onEditAvatar, onCardClick) {
                 name: cardData.name,
                 link: cardData.link,
                 likes: cardData.likes,
-                id: cardData.id
+                _id: cardData._id
             }
         })
         setCards(newCard);
@@ -63,12 +63,12 @@ function Main(onEditProfile, onAddPlace, onEditAvatar, onCardClick) {
                     <ul className="element">
                         {
                         cards.map((card) => (
-                        <Card card={card} key={card.id} onClick={onCardClick} />))
+                        <Card card={card} key={card._id} onCardClick={onCardClick}/>))
                     }
                     </ul>
                 </section>
         </main>
     )
-}
+};
 
     export default Main;

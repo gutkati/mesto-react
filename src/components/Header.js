@@ -1,10 +1,9 @@
 import React from 'react';
 import HeaderLogo from '../images/logo.svg';
-//import './Header.css';
 
 function Header() {
     return (
-        <header className="header">
+        <header className="header page__header">
             <img src={HeaderLogo} alt="логотип" className="header__logo"/>
             </header>
     )

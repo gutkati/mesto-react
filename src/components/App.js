@@ -5,7 +5,6 @@ import Footer from "./Footer.js";
 import PopupWithForm from "./PopupWithForm.js";
 import ImagePopup from "./ImagePopup.js";
 
-//import '../App.css';
 
 function App() {
 
@@ -28,7 +27,7 @@ function App() {
     }
 
     function handleCardClick(card) {
-        setIsImagePopupOpen(true)
+        setIsImagePopupOpen(true);
         setSelectedCard(card);
     }
 
@@ -50,12 +49,12 @@ function App() {
 
             <PopupWithForm isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} name={'profile'} title={'Редактировать профиль'} titleButton={'Сохранить'}>
             <div className="popup__input-container">
-                <input type="text" name="name" value="" placeholder="Имя" minLength="2" maxLength="40"
+                <input type="text" name="name" placeholder="Имя" minLength="2" maxLength="40"
                        required className="popup__input popup__input_theme_name" id="profile-name-input"/>
                        <span className="profile-name-input-error popup__input-error"></span>
             </div>
             <div className="popup__input-container">
-                <input type="text" name="about" value="" placeholder="О себе" minLength="2"
+                <input type="text" name="about" placeholder="О себе" minLength="2"
                        maxLength="200" required className="popup__input popup__input_theme_about-me" id="profile-about-me-input"/>
                     <span className="profile-about-me-input-error popup__input-error"></span>
             </div>
@@ -63,7 +62,7 @@ function App() {
 
             <PopupWithForm isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} name={'profile-avatar'} title={'Обновить аватар'} titleButton={'Сохранить'}>
                 <div className="popup__input-container">
-                    <input type="url" name="avatar" value="" placeholder="Ссылка на аватар" required
+                    <input type="url" name="avatar" placeholder="Ссылка на аватар" required
                            className="popup__input popup__input_theme_name" id="avatar-link-input"/>
                         <span className="avatar-link-input-error popup__input-error"></span>
                 </div>
@@ -71,12 +70,12 @@ function App() {
 
             <PopupWithForm isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} name={'card'} title={'Новое место'} titleButton={'Создать'}>
                 <div className="popup__input-container">
-                    <input type="text" name="name" value="" placeholder="Название" minLength="2"
+                    <input type="text" name="name" placeholder="Название" minLength="2"
                            maxLength="30" required className="popup__input popup__input_type_card-name" id="card-name-input"/>
                         <span className="card-name-input-error popup__input-error"></span>
                 </div>
                 <div className="popup__input-container">
-                    <input type="url" name="link" value="" placeholder="Ссылка на картинку" required
+                    <input type="url" name="link" placeholder="Ссылка на картинку" required
                            className="popup__input popup__input_type_card-link" id="card-link-input"/>
                         <span className="card-link-input-error popup__input-error"></span>
                 </div>
