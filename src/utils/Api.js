@@ -37,14 +37,14 @@ class Api {
              .then(this._checkResponse) //если сервер ответил успешно(ok) создаем из ответа объект, если нет то появляется ошибка
      }
 
-     addCard(name, link) {
+     addCard(object) {
          return fetch(`${this._baseUrl}/cards`, {
              method: "POST",                 //метод изменяет существующие данные на сервере
              headers: this._headers,
              body: JSON.stringify({     //делает из объекта строку
-                 name,
-                 link
-             })
+                 name: object.name,
+                 link: object.link,
+             }),
          })
                  .then(this._checkResponse)
      }
@@ -72,6 +72,14 @@ class Api {
              })
              .then(this._checkResponse)
 
+     }
+
+     changeStatusLike(id, isLiked) {
+         if (isLiked) {
+             return this.addLike(id);
+         } else {
+             return this.deleteLike(id)
+         }
      }
 
      newAvatar(data) {                      //метод редактирования профиля
